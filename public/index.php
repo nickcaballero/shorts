@@ -6,7 +6,7 @@ set_include_path(implode(PATH_SEPARATOR, array(
 		get_include_path()
 )));
 
-//Database configdo
+//Database configuration
 $DB_CONFIG = array(
 		'host' => 'localhost',
 		'username' => 'short_user',
