@@ -1,0 +1,56 @@
+<?php 
+/**
+ * Set the title of this view
+ */
+$this->title = 'Statistics - '.$this->short->_url->getUrl();
+?>
+<?php
+/**
+ * Place the log entries inside a json object.
+ * This is the initial data set.
+ */
+?>
+
+<?php 
+/**
+ * This is the basic markup
+ */
+?>
+<h2>Information</h2>
+<p>
+	URL: <em><?php echo $this->short->_url->getUrl(); ?> </em>
+</p>
+<p>
+	Path: <em><?php echo $this->short->_url->path=='|' ? 'None.' : '/'.$this->short->_url->path; ?> </em>
+</p>
+<p>
+	Authority: <em><?php 
+	echo $this->short->_url->_host->host=='|' ? 'None.' : $this->short->_url->_host->host;
+	echo empty($this->short->_url->_host->port)?'':' on port '. $this->short->_url->_host->port; ?>
+	</em>
+</p>
+<p>
+	Scheme: <em><?php echo $this->short->_url->_host->_scheme->scheme; ?> </em>
+</p>
+<p>
+	Name: <em><?php echo $this->short->name; ?> </em>
+</p>
+<p>
+	Created: <em><?php echo $this->short->created; ?> </em>
+</p>
+<h2>Statistics</h2>
+<p>
+	Total clicks: <em><?php echo $this->count; ?> </em>
+</p>
+<table>
+	<tr>
+		<th>Time</th>
+		<th>Country</th>
+	</tr>
+	<?php foreach($this->log_entries as $entry):?>
+	<tr>
+		<td><?php echo $entry['timestamp']; ?></td>
+		<td><?php echo $entry['country']; ?></td>
+	</tr>
+	<?php endforeach;?>
+</table>

@@ -1,0 +1,38 @@
+<?php 
+/**
+ * Set the title of this view
+ */
+$this->title = 'Create a Short';
+?>
+
+<?php 
+/**
+ * Check if URL very wrong
+ */
+if(isset($this->url) && $this->url === false): ?>
+<h3>The URL is REALLY wrong. Pretty lenient about this so check again.</h3>
+<?php endif;?>
+<?php 
+/**
+ * Display the form if the short was not passed
+ */
+if(!isset($this->short)): ?>
+<form method="post">
+	<p>
+		URL: <input type="text" name="url" />
+	</p>
+	<button type="submit">Create Short</button>
+</form>
+<?php
+/**
+ * Display the confirmation for the short created
+ */
+else: ?>
+<h3>Short Created</h3>
+<p>
+	Your short is <a href="<?php echo $this->short->toUrl(); ?>"><?php echo $this->short->toUrl(); ?>
+	</a> Your stats are available at <a
+		href="<?php echo $this->short->toUrl().'?stats=true'; ?>"><?php echo $this->short->toUrl().'?stats=true'; ?>
+	</a>
+</p>
+<?php endif;?>
