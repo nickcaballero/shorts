@@ -43,17 +43,6 @@ class Short_UrlHost extends Short_Model
 	 */
 	public $_scheme;
 	
-	/**
-	 * Constructor
-	 * 
-	 * @param array $options
-	 */
-	public function __construct($options=null) {
-		parent::__construct($options);
-		require_once 'Short/UrlScheme.php';
-		$this->_scheme = Short_UrlScheme::loadByProperty($this->scheme_id);
-	}
-	
 	public static function getTableName() {
 		return 'url_host';
 	}

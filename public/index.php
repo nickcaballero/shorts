@@ -37,7 +37,7 @@ if (!empty($name) && $_SERVER['REQUEST_METHOD'] != 'POST') {
 	require_once 'Short/Model.php';
 	require_once 'Short/Short.php';
 
-	$short = Short_Short::loadByProperty($name, 'name');
+	$short = Short_Short::loadShort($name);
 	if ($short) {
 
 		//Route the short

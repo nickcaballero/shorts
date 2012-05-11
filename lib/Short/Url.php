@@ -37,17 +37,6 @@ class Short_Url extends Short_Model
 	public $_host;
 
 	/**
-	 * Constructor
-	 *
-	 * @param array $options
-	 */
-	public function __construct($options=null) {
-		parent::__construct($options);
-		require_once 'Short/UrlHost.php';
-		$this->_host = Short_UrlHost::loadByProperty($this->host_id);
-	}
-
-	/**
 	 * Concatenate real url from parts
 	 *
 	 * @return string
